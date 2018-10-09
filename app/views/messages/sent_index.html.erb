@@ -1,0 +1,14 @@
+<div class="main sent_index">
+<div class="container">
+<% @sent.each do |message| %>
+<div class="messages-content">
+  <h3>メッセージ内容</h3>
+  <%= message.message_content %>
+</div>
+<div class="messages-send_user">
+  <h3>贈り先</h3>
+  <%= message.receive_user_name %>
+</div>
+  <% end %>
+</div>
+</div>

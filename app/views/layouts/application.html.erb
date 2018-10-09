@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>NP Peer Bonus</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<header>
+  <div class="header-logo">
+    <%= link_to("NP Peer Bonus","/") %>
+  </div>
+  <ul class="header-menus">
+    <li>
+      <%= link_to("NP Peer Bonusとは","/about") %>
+    </li>
+    <% if @current_user %>
+    <li>
+      <%= link_to("受信メッセージ", "/messages/#{@current_user.id}/inbox_index") %>
+    </li>
+    <li>
+      <%= link_to("送信メッセージ", "/messages/#{@current_user.id}/sent_index") %>
+    </li>
+    <li>
+      <%= link_to(@current_user.name, "/users/#{@current_user.id}/edit") %>
+    </li>
+    <li>
+      <%= link_to("ログアウト", "/logout", {method: :post}) %>
+    </li>
+    <% end %>
+  </ul>
+  </header>
+
+    <% if flash[:notice]%>
+      <div class="flash">
+        <%= flash[:notice]%>
+      </div>
+    <% end %>
+<%= yield %>
+
+</body>
+</html>

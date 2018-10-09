@@ -1,0 +1,13 @@
+ja:
+  activerecord:
+    models:
+      message: メッセージ
+    attributes:
+      message:
+        send_id: 贈り主
+        anonymous_flag:
+        receive_id: 贈り先
+        stamp: スタンプ
+        message_theme: テーマ
+        message_content: メッセージ内容
+        message_unread_flag:
