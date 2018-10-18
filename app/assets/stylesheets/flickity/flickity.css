@@ -1,6 +1,10 @@
 /*! Flickity v2.1.2
 https://flickity.metafizzy.co
 ---------------------------------------------- */
+.js-flickity {
+
+}
+
 
 .flickity-enabled {
   position: relative;
@@ -29,6 +33,8 @@ https://flickity.metafizzy.co
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
+          margin-top: 100px;
+          margin-bottom: 100px;
 }
 
 .flickity-enabled.is-draggable .flickity-viewport {
