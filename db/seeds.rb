@@ -5,3 +5,10 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+require "csv"
+#CSV.foreach('db/seed_01.csv', encoding: "Shift_JIS:UTF-8", undef: :replace, replace: "*")　do |row|
+CSV.foreach('db/seed_01.csv', encoding:"Shift_JIS:UTF-8") do |row|
+  next if row[0] == "name"
+  User.create(name: row[0], email: row[1], password: row[2])
+end

@@ -1,0 +1,36 @@
+<div class="main messages-new">
+  <div class="container">
+    <h1 class="form-heading">メッセージを返信する</h1>
+    <div class="form">
+      <div class="form-body">
+        <% @reply_message.errors.full_messages.each do |message| %>
+          <div class="form-error">
+            <%= message %>
+          </div>
+        <% end %>
+        <%= form_tag("/messages/#{@receive_message.id}/reply_create") do %>
+        <h3>贈り先</h3>
+        <p><%= @receive_message.send_user_name %></p>
+        <h3>テーマ</h3>
+        <p>
+        <select name="theme">
+        <option value=" 1 " selected>テーマ1</option>
+        <option value=" 2 ">テーマ2</option>
+        <option value=" 3 ">テーマ3</option>
+      </select>
+      </p>
+      <h4 class="theme-sample">テーマ見本はこちら</h4>
+        <p>
+          <%= link_to("①", "/messages/sample_show/1") %>
+          <%= link_to("②", "/messages/sample_show/2") %>
+          <%= link_to("③", "/messages/sample_show/3") %>
+        </p>
+        <h3>メッセージ</h3>
+        <textarea name = "content"></textarea>
+        <div class="submit"><input type="submit" value="送信"></div>
+        <% end %>
+      </div>
+    </div>
+
+  </div>
+</div>

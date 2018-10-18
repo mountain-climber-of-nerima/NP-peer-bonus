@@ -1,14 +1,25 @@
 <div class="main inbox_index">
 <div class="container">
-<% @inbox.each do |message| %>
-<div class="messages-content">
-  <h3>メッセージ内容</h3>
-  <%= message.message_content %>
+  <div class="message-heading">
+  <h2>受信メッセージ一覧</h2>
+  </div>
+  <div class="messages-content">
+  <table>
+    <tr>
+      <th>メッセージ内容</th>
+      <th>贈り主</th>
+    </tr>
+    <% @inbox.each do |message| %>
+    <tr>
+      <td><%= link_to(message.message_content,"/messages/#{message.id}/inbox_show/#{message.message_theme}") %></td>
+      <% if message.anonymous_flag == "on" %>
+      <td>（匿名の方からのメッセージです）</td>
+      <% else %>
+      <td><%= message.send_user_name %></td>
+      <% end %>
+    </tr>
+    <% end %>
+  </table>
 </div>
-<div class="messages-send_user">
-  <h3>贈り主</h3>
-  <%= message.send_user_name %>
-</div>
-  <% end %>
 </div>
 </div>

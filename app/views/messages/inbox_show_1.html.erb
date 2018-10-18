@@ -1,14 +1,23 @@
-<div class="main message-show">
-  <div class="receive-user-name">
-  <div class="send-user-name">
-    <div class="message-content">
-    <div class="stamp">
-      <div class="like-edit-reply">
-        
-
+<div class="main message-show-1">
+  <div class="message-show-1-container">
+    <div class="img_show_1_container">
+      <img class="img_show_1" src="/00000372.png">
+      <div class="show-1-receive-user-name">
+        <h3>TO：　<%= @message.receive_user_name %>さん</h3>
+      </div>
+      <div class="show-1-message-content">
+        <p><%= @message.message_content %></p>
+      </div>
+      <div class="show-1-send-user-name">
+        <% if @message.anonymous_flag == "on" %>
+        <h3>FROM：　（匿名の方からのメッセージです）</h3>
+        <% else %>
+        <h3>FROM：　<%= @message.send_user_name %></h3>
+        <% end %>
       </div>
     </div>
+    <div class="message-menues">
+      <div class="square_btn"><%= link_to("返信する", "/messages/#{@message.id}/reply_new") %></div>
     </div>
-  </div>
   </div>
 </div>

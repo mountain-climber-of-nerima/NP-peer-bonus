@@ -1,14 +1,21 @@
 <div class="main sent_index">
 <div class="container">
-<% @sent.each do |message| %>
-<div class="messages-content">
-  <h3>メッセージ内容</h3>
-  <%= message.message_content %>
+  <div class="message-heading">
+  <h2>送信メッセージ一覧</h2>
+  </div>
+  <div class="messages-content">
+  <table>
+    <tr>
+      <th>メッセージ内容</th>
+      <th>贈り先</th>
+    </tr>
+    <% @sent.each do |message| %>
+    <tr>
+      <td><%= link_to(message.message_content,"/messages/#{message.id}/sent_show/#{message.message_theme}") %></td>
+      <td><%= message.receive_user_name %></td>
+    </tr>
+    <% end %>
+  </table>
 </div>
-<div class="messages-send_user">
-  <h3>贈り先</h3>
-  <%= message.receive_user_name %>
-</div>
-  <% end %>
 </div>
 </div>

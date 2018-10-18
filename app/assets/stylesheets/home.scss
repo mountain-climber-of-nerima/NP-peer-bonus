@@ -12,10 +12,10 @@ ul, li {
   list-style-type: none;
   padding: 0;
   margin: 0;
-  color: #000000;
+  color: white;
 }
 
-a {
+a, {
   text-decoration: none;
   color: #000000;
   font-size: 14px;
@@ -42,6 +42,7 @@ form input[type="submit"] {
 body {
   color: black;
   background-color: #ffedab;
+  margin: 0;
 }
 
 .main {
@@ -55,8 +56,6 @@ body {
 .container {
   max-width: 600px;
   margin: 60px auto;
-  padding-left: 15px;
-  padding-right: 15px;
   clear: both;
 }
 
@@ -64,14 +63,15 @@ body {
 header {
   height: 64px;
   position: absolute;
-  z-index: 1;
+  z-index: 2;
   width: 100%;
+  background: #ffc800;
 }
 
 .header-logo {
   float: left;
   padding-left: 20px;
-  color: black;
+  color: white;
   font-size: 22px;
   line-height: 64px;
 }
@@ -85,8 +85,8 @@ header {
   float: left;
   line-height: 64px;
   font-size: 13px;
-  color: black;
   padding-left: 15px;
+  color: white;
 }
 
 /* top ================================ */
@@ -107,6 +107,7 @@ header {
 
 .top-message {
   position: relative;
+  z-index: 2;
 }
 
 .top-main h2 {
@@ -121,6 +122,21 @@ header {
   font-size: 24px;
 }
 
+.top-message-heading1, .top-message-heading2 {
+  color: white;
+}
+
+video {
+position: fixed;
+right: 0;
+bottom: 0;
+min-width: 100%;
+min-height: 100%;
+width: auto;
+height: auto;
+z-index: 1;
+background-size: cover;
+}
 
 /* メッセージ編集画面へのリンクボタン============================== */
 
@@ -134,7 +150,7 @@ header {
   font-size: 15px;/*文字のサイズ*/
   line-height: 50px;/*高さと合わせる*/
   vertical-align: middle;/*垂直中央寄せ*/
-  background: #ffa500;
+  background: #ffc800;
   overflow: hidden;/*はみ出た部分を隠す*/
   text-decoration:none;/*下線は消す*/
 }
@@ -212,7 +228,7 @@ header {
 }
 
 .form input[type="submit"] {
-  background-color: #3ecdc6;
+  background-color: #4169e1;
   color: white;
   cursor: pointer;
   font-weight: 300;
@@ -243,11 +259,6 @@ header {
   font-size: 14px;
 }
 
-/* メッセージ詳細画面　====================== */
-
-.show-message {
-  position: relative;
-}
 
 
 

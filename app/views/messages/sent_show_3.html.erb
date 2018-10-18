@@ -1,1 +1,24 @@
-show3です
+<div class="main message-show-3">
+  <div class="message-show-3-container">
+    <div class="img_show_3_container">
+      <img class="img_show_3" src="/18712.png">
+      <div class="show-3-receive-user-name">
+        <h3>TO：　<%= @message.receive_user_name %>さん</h3>
+      </div>
+      <div class="show-3-message-content">
+        <p><%= @message.message_content %></p>
+      </div>
+      <div class="show-3-send-user-name">
+        <% if @message.anonymous_flag == "on" %>
+        <h3>FROM：　（匿名の方からのメッセージです）</h3>
+        <% else %>
+        <h3>FROM：　<%= @message.send_user_name %></h3>
+        <% end %>
+      </div>
+    </div>
+    <div class="message-menues">
+      <div class="square_btn"><%= link_to("編集する", "#") %></div>
+      <div class="square_btn"><%= link_to("削除する", "/messages/#{@message.id}/destroy", {method:"post"}) %></div>
+    </div>
+  </div>
+</div>

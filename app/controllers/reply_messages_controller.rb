@@ -1,10 +1,10 @@
 class ReplyMessagesController < ApplicationController
   before_action :authenticate_user
 
-  def new
+  def reply_new
   end
 
-  def update
+  def reply_update
   end
 
 end

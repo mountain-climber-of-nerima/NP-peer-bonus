@@ -1,7 +1,6 @@
 <div class="main messages-new">
   <div class="container">
     <h1 class="form-heading">メッセージを贈る</h1>
-
     <div class="form">
       <div class="form-body">
         <% @message.errors.full_messages.each do |message| %>
@@ -10,39 +9,47 @@
           </div>
         <% end %>
         <%= form_tag("/messages/create") do %>
-        <h3>贈り先</h3>
-        <select name="receive_id">
-          <option value="">贈り先を選択してください</option>
-          <option value=" 1 ">ユーザー1</option>
-          <option value=" 2 ">ユーザー2</option>
-          <option value=" 3 ">ユーザー3</option>
-          <option value=" 4 ">ユーザー4</option>
-          <option value=" 5 ">ユーザー5</option>
-        </select>
-        <h3>贈り主</h3><p>※相手に表示される名前を選択してください</p>
+        <h3 class="message-new-menues">贈り先</h3>
         <p>
-        <input type="radio" name="send_user" value= "off"> 実名を希望する
-        <input type="radio" name="send_user" value="on" checked> 匿名を希望する
+          <select data-placeholder="贈り先を設定してください" name="receive_id"
+          class="chosen" style="width:300px;" tabindex="1" >
+          <% @users.each do |user| %>
+          <option value=""></option>
+          <option value="<%= user.id %>" ><%= user.name %></option>
+          <% end %>
+          </select>
+      </p>
+        <h3 class="message-new-menues">贈り主</h3><p>※相手に表示される名前を選択してください</p>
+        <p>
+        <input type="radio" name="anonymous_flag" value= "off" checked> 実名を希望する
+        <input type="radio" name="anonymous_flag" value="on"> 匿名を希望する
         </p>
-        <h3>テーマ</h3>
+        <h3 class="message-new-menues">テーマ</h3>
+        <p>
         <select name="theme">
         <option value=" 1 " selected>テーマ1</option>
         <option value=" 2 ">テーマ2</option>
         <option value=" 3 ">テーマ3</option>
         </select>
-        <p><%= link_to("テーマ見本はこちら", "/messages/sample/show") %></p>
-        <h3>スタンプ</h3>
-        <select name="stamp">
-        <option value=" 1 " selected>スタンプ1</option>
-        <option value=" 2 ">スタンプ2</option>
-        <option value=" 3 ">スタンプ3</option>
-        </select>
-        <h3>メッセージ（任意）</h3>
+      </p>
+      <h4 class="theme-sample">テーマ見本はこちら</h4>
+        <p>
+          <%= link_to("①", "/messages/sample_show/1") %>
+          <%= link_to("②", "/messages/sample_show/2") %>
+          <%= link_to("③", "/messages/sample_show/3") %>
+        </p>
+        <h3 class="message-new-menues">メッセージ</h3>
         <textarea name = "content"></textarea>
         <div class="submit"><input type="submit" value="送信"></div>
         <% end %>
       </div>
     </div>
-
+    <script>
+//      $(window).on('load', function() {
+        $(".chosen").chosen({
+          search_contains: true
+        })
+  //    })
+    </script>
   </div>
 </div>

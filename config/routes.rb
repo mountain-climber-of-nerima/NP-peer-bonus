@@ -2,23 +2,31 @@ Rails.application.routes.draw do
   post 'likes/create' => "likes#create"
   post "likes/destroy" => "likes#destroy"
 
-  get 'reply_messages/new' => "reply_messages#new"
-  post "reply_messages/update" => "reply_messages#update"
+  get 'messages/:id/reply_new' => "messages#reply_new"
+  post "messages/:id/reply_create" => "messages#reply_create"
+  post "messages/reply_update" => "messages#reply_update"
 
   get 'messages/new' => "messages#new"
   post "messages/create" => "messages#create"
-  get "messages/sample/show" => "messages#sample_show"
+  get "messages/sample_show/1" => "messages#sample_show_1"
+  get "messages/sample_show/2" => "messages#sample_show_2"
+  get "messages/sample_show/3" => "messages#sample_show_3"
+
+
   get "messages/complete" => "messages#complete"
   get "messages/:id/inbox_index" => "messages#inbox_index"
   get "messages/:id/sent_index" => "messages#sent_index"
+
   get "messages/:id/inbox_show/1" => "messages#inbox_show_1"
   get "messages/:id/inbox_show/2" => "messages#inbox_show_2"
   get "messages/:id/inbox_show/3" => "messages#inbox_show_3"
+
   get "messages/:id/sent_show/1" => "messages#sent_show_1"
   get "messages/:id/sent_show/2" => "messages#sent_show_2"
   get "messages/:id/sent_show/3" => "messages#sent_show_3"
-  post "messages/destroy" => "messages#destroy"
-  get "messages/edit" => "messages#edit"
+
+  post "messages/:id/destroy" => "messages#destroy"
+  get "messages/:id/edit" => "messages#edit"
   post "messages/update" => "messages#update"
 
   get "login" => "users#login_form"
