@@ -75,7 +75,8 @@ class MessagesController < ApplicationController
   end
 
   def sent_index
-    @sent = Message.where(send_id: @current_user.id)
+    @message = Message.where(send_id: @current_user.id)
+    @sent = @message.all.order(created_at: :desc)
   end
 
   def sent_show_1
